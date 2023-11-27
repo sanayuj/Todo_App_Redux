@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { addTodo, removeTodo } from "../features/Todo/todoSlice";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
+import { ToastContainer,toast } from "react-toastify";
 
 function Todo() {
   const [input, setInput] = useState("");
@@ -11,8 +12,12 @@ function Todo() {
 
   const handleTodoSubmit = (e) => {
     e.preventDefault();
+    if(input.length>0){
     dispatch(addTodo(input));
     setInput("");
+    }else{
+        toast("Enter the Activity first!")
+    }
   };
 
   return (
@@ -47,10 +52,11 @@ function Todo() {
           todos.map((todo, index) => (
             <div
               key={todo.id}
-              className="col g-3 w-25 m-auto p-3 my-2"
+              className="col g-3 w-25 m-auto p-3 justify-content-between my-2 d-flex "
               style={{ backgroundColor: "indigo", color: "white" }}
             >
-              {index + 1}: {todo.text}
+              {todo.text}
+              <div className=""><i class="bi bi-x-square"></i></div>
             </div>
           ))
         )}

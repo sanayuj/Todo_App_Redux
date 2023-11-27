@@ -1,11 +1,13 @@
-
-import './App.css';
-import Todo from './Components/Todo';
+import "./App.css";
+import { ToastContainer } from "react-toastify";
+import Todo from "./Components/Todo";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
-<Todo/>
+      <ToastContainer />
+      <Todo />
     </>
   );
 }
