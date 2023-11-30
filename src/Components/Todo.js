@@ -7,7 +7,9 @@ import { ToastContainer,toast } from "react-toastify";
 function Todo() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
+
   const todos = useSelector((state) => state.todos);
+  
   console.log(todos, "sdsdsd");
 
   const handleTodoSubmit = (e) => {

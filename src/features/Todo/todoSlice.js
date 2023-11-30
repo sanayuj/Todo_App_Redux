@@ -10,14 +10,11 @@ const todoSlice = createSlice({
       const todo = { id: nanoid(), text: action.payload };
       state.todos.push(todo);
     },
-    removeTodo:(state,action)=>{
-        state.todos=state.todos.filter((todo)=>
-            todo!==action.payload
-        )
-    }
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo !== action.payload);
+    },
   },
 });
 
-
-export const {addTodo,removeTodo} =todoSlice.actions
-export default todoSlice.reducer
+export const { addTodo, removeTodo } = todoSlice.actions;
+export default todoSlice.reducer;
